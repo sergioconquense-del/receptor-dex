@@ -1,51 +1,54 @@
 # Receptor DeX
 
-Receptor Miracast / Wi-Fi Display para Android TV (probado en Philips 55OLED718/12, Android 14) que permite
-usar **Samsung DeX inalámbrico** (probado con un Galaxy S23 Ultra). Vídeo H.264 1080p y audio LPCM.
+[**English**](README.md) · [Español](README.es.md)
 
-> **Versión 1.0, experimental.** Un solo móvil y una sola tele probados. Estado detallado en
-> [REQUIREMENTS.md](REQUIREMENTS.md), arquitectura en [SPEC.md](SPEC.md), licencias en [NOTICE.md](NOTICE.md).
+Miracast / Wi-Fi Display **receiver (sink) for Android TV** that lets you use **wireless Samsung DeX**
+(tested with a Galaxy S23 Ultra). H.264 1080p video and LPCM audio.
 
-## Manual de uso
+> **Version 1.0, experimental.** Only one phone and one TV tested (Philips 55OLED718/12, Android 14).
+> Detailed status: [REQUIREMENTS.md](REQUIREMENTS.md) · architecture: [SPEC.md](SPEC.md) · licenses: [NOTICE.md](NOTICE.md)
+> (SPEC and REQUIREMENTS are in Spanish for now; a machine translation is good enough to follow them.)
 
-**Requisitos:** tele Android TV con depuración USB/por red activada, y móvil Samsung con DeX.
+## User guide
 
-1. Instala el APK (`adb connect IP:5555` y `adb install -r ReceptorDeX-v1.0.apk`).
-2. Abre **Receptor DeX**. Concede los permisos (ubicación → "Permitir siempre" en Ajustes) y, la primera
-   vez, acepta en la tele la clave ADB ("Permitir siempre desde este ordenador"; el foco empieza en
-   "Cancelar", muévelo a "Permitir"). La app arranca Shizuku sola.
-3. En el móvil: ajustes rápidos → **DeX** → elige la tele.
-4. En la tele, acepta al móvil: **Aceptar / Aceptar siempre / Rechazar**. Los de confianza se guardan;
-   la tecla **Menú** los olvida.
-5. Para terminar, corta desde DeX en el móvil. La app sigue anunciándose en segundo plano.
+**Requirements:** an Android TV with network ADB (port 5555) enabled, and a Samsung phone with DeX.
 
-**Mando (experimental, puede que el móvil no responda):**
+1. Install the APK from [Releases](../../releases): `adb connect TV_IP:5555` then `adb install -r ReceptorDeX-v1.0.apk`.
+2. Open **Receptor DeX** and grant the permissions (location → "Allow all the time", in Settings). The first
+   time, accept the ADB key prompt on the TV ("Always allow from this computer"; focus starts on "Cancel",
+   move it to "Allow"). The app starts Shizuku by itself.
+3. On the phone: quick settings → **DeX** → pick the TV.
+4. On the TV, accept the phone: **Accept / Always accept / Reject**. Trusted phones are remembered;
+   the **Menu** key forgets them.
+5. To stop, disconnect from DeX on the phone. The app keeps advertising in the background.
 
-| Botón | Acción |
+**TV remote (experimental, the phone may ignore it):**
+
+| Button | Action |
 |---|---|
-| Flechas | Mover puntero |
-| OK | Clic |
-| Atrás (mantener) | Atrás (Esc) |
-| Verde / Amarillo | Scroll arriba / abajo |
-| Rojo / Azul | Zoom − / + |
+| Arrows | Move pointer |
+| OK | Click |
+| Back (hold) | Back (Esc) |
+| Green / Yellow | Scroll up / down |
+| Red / Blue | Zoom − / + |
 
-**Si falla la conexión:** cierra DeX en el móvil, apaga y enciende su Wi-Fi y reintenta.
+**If the connection fails:** close DeX on the phone, toggle its Wi-Fi off and on, and retry.
 
-## Limitaciones conocidas
+## Known limitations
 
-Latencia del cursor ~1 s; mando sin verificar salvo la tecla Espacio; arranque al encender la tele,
-TEARDOWN/PAUSE/PLAY y otros móviles sin probar; canal de entrada UIBC sin cifrar (úsalo en red doméstica).
-`targetSdk 30` es deliberado (ruta de permisos P2P previa a Android 13), así que no es apta para Google Play.
+~1 s cursor latency; remote control unverified except the Space key; boot start, TEARDOWN/PAUSE/PLAY and other
+phones untested; the UIBC input channel is unencrypted (use it on a home network). `targetSdk 30` is
+deliberate (pre-Android-13 P2P permission path), so it is not suitable for Google Play.
 
-## Compilar
+## Build
 
-`./gradlew assembleRelease` (JDK 17, Android SDK). El APK de release se firma con la clave de depuración;
-firma con la tuya para distribuirlo.
+`./gradlew assembleRelease` (JDK 17, Android SDK). The release APK is signed with the debug key; sign it with your own to distribute it.
 
-## Cómo ayudar
+## Contributing
 
-Ver [CONTRIBUTING.md](CONTRIBUTING.md) y los issues con `help wanted`. Los informes de prueba con otros móviles/teles son muy útiles.
+See [CONTRIBUTING.md](CONTRIBUTING.md) and the issues labelled `help wanted`. Test reports with other
+phones/TVs are very valuable.
 
-## Licencia
+## License
 
-Apache-2.0. Ver [LICENSE](LICENSE) y [NOTICE.md](NOTICE.md).
+Apache-2.0. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).

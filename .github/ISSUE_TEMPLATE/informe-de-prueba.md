@@ -1,11 +1,11 @@
 ---
-name: Informe de prueba
-about: Cuéntanos cómo te fue con tu móvil y tu tele
+name: Test report / Informe de prueba
+about: Tell us how it went with your phone and TV / Cuéntanos cómo te fue
 labels: testing
 ---
-**Móvil (modelo, Android/One UI):**
-**Tele (modelo, Android TV/Google TV):**
-**¿Se conecta?** sí / no / a veces
-**¿Vídeo y audio?**
-**¿Mando?**
+**Phone / Móvil (model, One UI):**
+**TV / Tele (model, Android TV):**
+**Connects? / ¿Se conecta?** yes / no / sometimes
+**Video and audio? / ¿Vídeo y audio?**
+**Remote? / ¿Mando?**
 **Log** (`adb logcat -d -s WfdService`):

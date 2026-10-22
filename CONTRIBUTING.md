@@ -1,16 +1,17 @@
-# Cómo ayudar
+# Contributing
 
-¡Gracias! El proyecto es una v1.0 experimental y necesita ayuda sobre todo en estos puntos
-(ver los issues con la etiqueta `help wanted`):
+[**English**](CONTRIBUTING.md) · [Español](CONTRIBUTING.es.md)
 
-1. **Mando de la tele como ratón/teclado**: solo la tecla Espacio llega a DeX. Falta la tabla de códigos UIBC que acepta.
-2. **Latencia del cursor (~1 s)**: buffer de Media3 y del audio.
-3. **Probar con otros móviles y teles** y contar qué pasa (plantilla "Informe de prueba").
-4. **Arranque al encender la tele, TEARDOWN/PAUSE/PLAY, cambio de resolución**: implementados, sin probar.
+Thanks! This is an experimental v1.0 and needs help mainly with (see issues labelled `help wanted`):
 
-## Antes de enviar un cambio
-- Lee [SPEC.md](SPEC.md) (arquitectura) y [REQUIREMENTS.md](REQUIREMENTS.md) (estado).
-- Un cambio por pull request, y cuenta cómo lo probaste (modelo de móvil y de tele).
-- **Licencias:** el proyecto es Apache-2.0. No pegues código GPL/AGPL ni de licencia incompatible (p. ej. Moonlight es GPL-3.0).
-  Si te basas en otro proyecto, cítalo en `NOTICE.md`.
-- Compila con `./gradlew assembleDebug`.
+1. **TV remote as mouse/keyboard**: only the Space key reaches DeX. The UIBC key/pointer code table DeX accepts is unknown.
+2. **Cursor latency (~1 s)**: Media3 and audio sink buffering.
+3. **Testing with other phones and TVs** and reporting what happens (use the "Test report" template).
+4. **Boot start, TEARDOWN/PAUSE/PLAY, resolution change**: implemented, untested.
+
+## Before sending a change
+- Read [SPEC.md](SPEC.md) (architecture) and [REQUIREMENTS.md](REQUIREMENTS.md) (status); both are in Spanish.
+- One change per pull request; say how you tested it (phone and TV model).
+- **Licenses:** the project is Apache-2.0. Do not paste GPL/AGPL or otherwise incompatible code
+  (e.g. Moonlight is GPL-3.0). If you base work on another project, credit it in `NOTICE.md`.
+- Build with `./gradlew assembleDebug`.
