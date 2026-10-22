@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Without this, Android's location appop for this app sits in FOREGROUND mode: fine while
+         an Activity is visible, but WifiP2pManager.startListening() silently fails (reason=0) the
+         moment the TV's screen goes to sleep, even though WfdService (a foreground service) is
+         still running. Confirmed live: screen off -> startListening FAILED; screen on -> succeeds. -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Android 11 hides other apps; this one needs to find Shizuku's install location. -->
+    <queries>
+        <package android:name="moe.shizuku.privileged.api" />
+    </queries>
+
+    <application android:label="Receptor DeX"
+                 android:icon="@mipmap/ic_launcher"
+                 android:banner="@drawable/banner">
+        <activity android:name=".MainActivity"
+                  android:exported="true"
+                  android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".WfdService"
+                  android:exported="false" />
+
+        <receiver android:name=".BootReceiver"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="${applicationId}.shizuku"
+            android:multiprocess="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    </application>
+</manifest>

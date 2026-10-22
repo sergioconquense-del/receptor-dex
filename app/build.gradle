@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.wfdtest.app'
+    compileSdk 34
+    buildFeatures {
+        aidl true
+    }
+
+    defaultConfig {
+        applicationId 'com.wfdtest.app'
+        // Deliberately old: WifiP2pServiceImpl's isPlatformOrTargetSdkLessThanT(packageName, uid)
+        // then takes the pre-Android-13 path (checkCanAccessWifiDirect: Location permission + the
+        // Location toggle), skipping NEARBY_WIFI_DEVICES/AttributionSource entirely.
+        minSdk 26
+        targetSdk 30
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Lets the app hold CONFIGURE_WIFI_DISPLAY (a signature permission no normal app can ever get)
+    // by running the privileged half of this code as a Shizuku-managed UserService - the same
+    // app_process-as-shell mechanism this project used manually all day, now self-contained.
+    implementation 'dev.rikka.shizuku:api:13.1.5'
+    implementation 'dev.rikka.shizuku:provider:13.1.5'
+    // ADB client (Apache-2.0): lets the app start Shizuku by itself through the TV's own network
+    // debugging service, so nobody has to open Shizuku after every reboot.
+    implementation 'dev.mobile:dadb:1.2.10'
+    // Demux, decode, A/V sync and frame timing (see SPEC.md): the public successor of the
+    // platform player Google's own AOSP Miracast sink handed its TS stream to.
+    implementation 'androidx.media3:media3-exoplayer:1.4.1'
+    implementation 'androidx.media3:media3-extractor:1.4.1'
+}
