@@ -42,6 +42,10 @@ TEARDOWN/PAUSE/PLAY y otros móviles sin probar; canal de entrada UIBC sin cifra
 `./gradlew assembleRelease` (JDK 17, Android SDK). El APK de release se firma con la clave de depuración;
 firma con la tuya para distribuirlo.
 
+## Cómo ayudar
+
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) y los issues con `help wanted`. Los informes de prueba con otros móviles/teles son muy útiles.
+
 ## Licencia
 
 Apache-2.0. Ver [LICENSE](LICENSE) y [NOTICE.md](NOTICE.md).
