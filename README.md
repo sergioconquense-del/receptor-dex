@@ -9,6 +9,12 @@ Miracast / Wi-Fi Display **receiver (sink) for Android TV** that lets you use **
 > Detailed status: [REQUIREMENTS.md](REQUIREMENTS.md) · architecture: [SPEC.md](SPEC.md) · licenses: [NOTICE.md](NOTICE.md)
 > (SPEC and REQUIREMENTS are in Spanish for now; a machine translation is good enough to follow them.)
 
+## Screenshots
+
+| Samsung DeX on the TV (Galaxy S23 Ultra → Philips OLED718) | App status screen on the TV |
+|---|---|
+| <img src="docs/images/dex-on-tv.jpg" width="480"> | <img src="docs/images/tv-status.jpg" width="480"> |
+
 ## User guide
 
 **Requirements:** an Android TV with network ADB (port 5555) enabled, and a Samsung phone with DeX.

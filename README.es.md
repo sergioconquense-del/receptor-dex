@@ -7,6 +7,12 @@ usar **Samsung DeX inalámbrico** (probado con un Galaxy S23 Ultra). Vídeo H.26
 > **Versión 1.0, experimental.** Un solo móvil y una sola tele probados. Estado detallado en
 > [REQUIREMENTS.md](REQUIREMENTS.md), arquitectura en [SPEC.md](SPEC.md), licencias en [NOTICE.md](NOTICE.md).
 
+## Capturas
+
+| Samsung DeX en la tele (Galaxy S23 Ultra → Philips OLED718) | Pantalla de estado de la app en la tele |
+|---|---|
+| <img src="docs/images/dex-on-tv.jpg" width="480"> | <img src="docs/images/tv-status.jpg" width="480"> |
+
 ## Manual de uso
 
 **Requisitos:** tele Android TV con depuración USB/por red activada, y móvil Samsung con DeX.
